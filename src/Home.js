@@ -45,7 +45,6 @@ const Home = () => {
     return (
         <div className={classes.content}>
             <h1 className={classes.logo}>Tung Pham</h1>
-
             <h2>Aspiring Software Engineer & Web Developer | QueensU CS</h2>
 
             <div>

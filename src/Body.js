@@ -5,6 +5,13 @@ import Lucidity from "./images/Lucidity.png";
 import MG from "./images/MG.gif";
 
 const useStyles = createUseStyles( {
+    link: {
+        color: 'cornflowerblue',
+        textDecoration: 'underline',
+    },
+    highlight: {
+        backgroundColor: 'cornflowerblue'
+    },
     checkboxContainer: {
         padding: '2rem',
         display: 'flex',
@@ -90,22 +97,6 @@ const useStyles = createUseStyles( {
     },
 });
 
-const ABOUT = <h1>
-    Tung Pham is a dedicated Computer Science graduate from Queen's University, 
-specializing in Software Design. At the age of 21, Tung possesses a passion for software engineering and web development, 
-with a desire to excel in various fields, including Cyber Security, Quality Assurance, Data Science, Consulting, and FinTech. 
-With a solid foundation in Computer Science and an insatiable curiosity for emerging technologies, 
-he is well-versed in both frontend and backend development, showcasing proficiency across a diverse range of tech stacks. 
-Tung's technical expertise has been honed through previous experiences as a Web Developer and Computer Vision Developer at QMIND, 
-where he had successfully tackled complex challenges and contributed to innovative projects. Beyond technical experiences,
-Tung has also displayed exceptional leadership abilities through various positions such as Logistics Manager for CUCAI, and Logistics Chair for Queen's Computing Orientation. 
-Tung learned the importance of organization and communication, thus he always wants to foster a collaborative and inclusive environment 
-for any role that he takes on. Driven by an unwavering passion for innovation and a strong desire to make a meaningful impact in the world of technology, 
-Tung is poised to thrive as a Software Engineer, Web Developer, or in various other technical roles. 
-With a comprehensive skill set, as well as the ability to work efficiently under pressure, and a versatile mindset, 
-Tung is primed to take on diverse challenges and contribute to the success of any team or organization.
-</h1>
-
 const WORK = [
     {
         name: "Project 1",
@@ -155,6 +146,25 @@ const Body = () => {
     const [aboutChecked, setAboutChecked] = useState(false);
     const [workChecked, setWorkChecked] = useState(false);
     const [unknownChecked, setUnknownChecked] = useState(false);
+    const [personalChecked, setPersonalChecked] = useState(false);
+
+    const ABOUT = 
+    <h1>
+        Tung Pham is a dedicated Computer Science graduate from <a className={classes.link} href="https://www.queensu.ca/">Queen's University</a>, 
+        specializing in <span className={classes.highlight}>Software Design</span>. At the age of 21, Tung possesses a passion for Software Engineering and Web Development, 
+        with a desire to excel in various fields, including Cyber Security, Quality Assurance, Data Science, Consulting, and FinTech. 
+        With a solid foundation in Computer Science and an insatiable curiosity for emerging technologies, 
+        he is well-versed in both frontend and backend development, showcasing proficiency across a diverse range of tech stacks. 
+        Tung's technical expertise has been honed through previous experiences as a <span className={classes.highlight}>Web Developer</span> and <span className={classes.highlight}>Computer Vision Developer</span> at <a className={classes.link} href="https://www.qmind.ca/">QMIND</a>, 
+        where he had successfully tackled complex challenges and contributed to innovative projects. Beyond technical experiences,
+        Tung has also displayed exceptional leadership abilities through various positions such as <span className={classes.highlight}>Logistics Manager</span> at <a className={classes.link} href="https://www.cucai.ca/">CUCAI</a>, 
+        and <span className={classes.highlight}>Logistics Chair</span> for <a className={classes.link} href="http://qcomputingorientation.ca">Queen's Computing Orientation</a>. 
+        Tung learned the importance of organization and communication, thus he always wants to foster a collaborative and inclusive environment 
+        for any role that he takes on. Driven by an unwavering passion for innovation and a strong desire to make a meaningful impact in the world of technology, 
+        Tung is poised to thrive as a Software Engineer, Web Developer, or in various other technical roles. 
+        With a comprehensive skill set, as well as the ability to work efficiently under pressure, and a versatile mindset, 
+        Tung is primed to take on diverse challenges and contribute to the success of any team or organization.
+    </h1>
 
     const handleCheckboxChange = (checkboxName, isChecked) => {
         if (checkboxName === 'about') {
@@ -163,6 +173,8 @@ const Body = () => {
             setWorkChecked(isChecked);
         } else if (checkboxName === 'unknown') {
             setUnknownChecked(isChecked);
+        } else if (checkboxName == 'personal') {
+            setPersonalChecked(isChecked);
         }
         };
 
@@ -191,6 +203,14 @@ const Body = () => {
                 onChange={(e) => handleCheckboxChange('unknown', e.target.checked)} />
                 <div className="state p-danger">
                     <label>???</label>
+                </div>
+            </div>
+            <div className={`${classes.checkbox} pretty p-switch p-fill`}>
+                <input type="checkbox"
+                checked={personalChecked}
+                onChange={(e) => handleCheckboxChange('personal', e.target.checked)} />
+                <div className="state p-success">
+                    <label>PERSONAL INTERESTS</label>
                 </div>
             </div>
         </div>
