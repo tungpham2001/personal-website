@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import { createUseStyles } from 'react-jss';
 import Lucidity from "./images/Lucidity.png";
+import MG from "./images/MG.gif";
 
 const useStyles = createUseStyles( {
     container: {
@@ -15,7 +16,7 @@ const useStyles = createUseStyles( {
     message: {
         marginTop: '20px',
         fontSize: '40px',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     projectContainer: {
         display: 'flex',
@@ -37,7 +38,7 @@ const useStyles = createUseStyles( {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        border: '1px solid black',
+        border: '2px solid black',
         position: 'relative',
         overflow: 'hidden',
         transition: 'transform 0.3s',
@@ -45,6 +46,8 @@ const useStyles = createUseStyles( {
         '&:hover': {
         transform: 'scale(1.05)',
         },
+        color: 'cornflowerblue',
+        fontWeight: 'bold',
     },
     projectName: {
         fontSize: '24px',
@@ -57,27 +60,20 @@ const useStyles = createUseStyles( {
         left: 0,
         width: '100%',
         height: '100%',
-        transition: 'opacity 0.3s',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
         flexDirection: 'column',
-        fontSize: '18px',
         opacity: 0,
         transition: 'opacity 0.3s',
         '&:hover': {
+            background: 'rgba(0, 0, 0, 0.7)',
             opacity: 1,
         },
     },
     projectDetails: {
         fontSize: '18px',
-        marginBottom: '5px',
-        opacity: 1,
-        transition: 'opacity 0.3s',
-        '&: hover': {
-            opacity: 0,
-        },
     },
     projectTechStack: {
         fontSize: '16px',
@@ -145,7 +141,7 @@ const Body = () => {
             setUnknownChecked(isChecked);
         }
         };
-    
+
     return (
     <div className={classes.container}>
         <div className="checkbox-container">
@@ -192,7 +188,16 @@ const Body = () => {
                 ))}
             </div>
             )}
-            {unknownChecked && (<style>{`body { background-color: yellow; }`}</style>)}
+            {unknownChecked && (
+                <style>
+                {`
+                    body {
+                        background: url(${MG}) center/cover fixed no-repeat;
+                        color: red;
+                    }
+                `}
+                </style>
+            )}
         </div>
     </div>
     );
