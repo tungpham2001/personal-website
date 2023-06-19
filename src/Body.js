@@ -160,6 +160,12 @@ const useStyles = createUseStyles( {
         width: '100%',
         height: '200px',
         marginBottom: '10px',
+        '@media (min-width: 400px)': {
+          width: 'calc(50% - 10px)',
+        },
+        '@media (min-width: 800px)': {
+          width: 'calc(33% - 10px)',
+        },
     },
     projectOverlay: {
         
