@@ -3,6 +3,7 @@ import 'pretty-checkbox/src/pretty-checkbox.scss';
 import { createUseStyles } from 'react-jss';
 import axios from 'axios';
 import RecentSong from './RecentSong';
+import { TypeAnimation } from "react-type-animation";
 
 import Lucidity from "./images/Lucidity.png";
 import Lottie from "lottie-react";
@@ -398,21 +399,31 @@ const PERSONAL = [
         description: (
             <div style={{ display: 'flex' }}>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
-                <div>
-                    {showRecentSong && <RecentSong />}
-                </div>
-                </div>
-                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
-                    <div style={{ width: '342px', height: '342px' }}>
-                        <img src={Valorant} alt="loading..." style={{ width: '322px', height: '300px' }}/>
-                        <h3>VALORANT</h3>
+                    <div>
+                        {showRecentSong && <RecentSong />}
                     </div>
                 </div>
-                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
-                    <div style={{ width: '250px', height: '250px' }}>
-                        <img src={Ninja} alt="loading..." style={{ width: '250px', height: '300px' }}/>
-                        <h3>Ninja Storm 4</h3>
-                    </div>
+                <div style={{ flex: 0.57, display: 'flex', justifyContent: 'center' }}>
+                    <TypeAnimation
+                        sequence={[
+                            "Tung's taste in music spans across various genres, "+
+                            "with a diverse appreciation for captivating melodies "+
+                            "and rhythms. Among his favorite genres, "+
+                            "EDM holds a special place, particularly Progressive House artists "+
+                            "like Martin Garrix and Avicii. The uplifting beats and euphoric "+
+                            "vibes resonate deeply with Tung, creating an immersive and exhilarating experience. "+
+                            "In addition to EDM, Tung finds solace in the soulful tunes of Korean RnB, "+
+                            "with a particular fondness for artists such as Colde and Zion T. "+
+                            "Their soul-stirring vocals and heartfelt lyrics evoke a range of emotions, "+
+                            "drawing him into a world of introspection. "+
+                            "If you happen to share a similar affinity for these music genres and artists, "+
+                            "Tung looks forward to connecting with you on Spotify. "+
+                            "Feel free to drop him a follow to discover more enthralling tracks, "+
+                            "and share in the joy of music."
+                        ]}
+                        style={{ fontSize: '1em' }}
+                        speed={80}
+                    />
                 </div>
             </div>
         ),

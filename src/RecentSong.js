@@ -5,14 +5,16 @@ import { createUseStyles } from 'react-jss';
 const useStyles = createUseStyles({
     subheading: {
         marginBottom: 3,
+        fontSize: '14px',
     },
 
     recentSong: {
-        display: 'flex'
+        display: 'flex',
+        justifyContent: 'center',
     },
 
     artist: {
-        fontSize: 30,
+        fontSize: 15,
         margin: '10px 20px',
         '@media (max-width: 768px)': {
             fontSize: 24,
@@ -20,7 +22,7 @@ const useStyles = createUseStyles({
     },
 
     title: {
-        fontSize: 15,
+        fontSize: 25,
         margin: '10px 20px',
         maxWidth: '20vw',
         overflow: 'hidden',
@@ -29,13 +31,14 @@ const useStyles = createUseStyles({
         '@media (max-width: 768px)': {
             maxWidth: '50vw',
         },
+        fontWeight: 'bold',
     },
 
     recentSongLink: {
         textDecoration: 'none',
         color: 'gray',
         '&:hover': {
-            color: 'black'
+            color: 'cornflowerblue'
         },
     },
 
@@ -47,7 +50,7 @@ const useStyles = createUseStyles({
     smallTest: {
         fontSize: 12,
         marginTop: 3,
-    }
+    },
 });
 
 function RecentSong() {
@@ -60,8 +63,8 @@ function RecentSong() {
             url: 'https://ws.audioscrobbler.com/2.0',
             params: {
                 method: 'user.getrecenttracks',
-                user: 'tung',
-                api_key: 'c3a5e6059899ffaeaa9c6fea7f184867',
+                user: 'tungpham2001',
+                api_key: '5502ebce9e9aa56c03eed8593d7c475f',
                 format: 'json',
             },
         }).then((res) => {
@@ -82,6 +85,7 @@ function RecentSong() {
 
     return (
         <>
+            
             <a
                 target="_blank"
                 rel = "noreferrer"
@@ -97,8 +101,11 @@ function RecentSong() {
                     />
                 </div>
                 <div>
-                    <h1 className={classes.artist}>{recentSong.artist}</h1>
+                    <h1 className={classes.subheading}>Most recently played song:</h1>
+                </div>
+                <div className={classes.songInfo}>
                     <p className={classes.title}>{recentSong.title}</p>
+                    <h1 className={classes.artist}>{recentSong.artist}</h1>  
                 </div>
             </a>
         </>
