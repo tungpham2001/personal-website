@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import { createUseStyles } from 'react-jss';
 import Lucidity from "./images/Lucidity.png";
+import Lottie from "lottie-react";
 import MG from "./images/MG.gif";
 import ADGA from "./images/ADGA.jpg";
 import PPS from "./images/PPS.jpg";
@@ -10,6 +11,11 @@ import SFSS from "./images/SFSS.png";
 import Github from "./images/Github.png";
 import Weather from "./images/Weather.JPG";
 import QMIND from "./images/QMIND.jpg";
+
+import Squat from './json/squat.json';
+import Bench from './json/bench.json';
+import Deadlift from './json/deadlift.json'
+
 
 const useStyles = createUseStyles( {
     link: {
@@ -129,6 +135,7 @@ const useStyles = createUseStyles( {
         color: '#fff',
         borderRadius: '4px',
         fontSize: '14px',
+        animation: '$fadeIn 0.3s ease-in-out forwards',
     },
     hobbyDescription: {
         marginTop: '100px',
@@ -138,66 +145,99 @@ const useStyles = createUseStyles( {
         padding: '10px',
         borderRadius: '30px',
     },
-    // new styles for mobile devices
-    '@media (max-width: 600px)': {
-    container: {
-        fontSize: '16px',
-        marginTop: '20px',
-    },
-    checkboxContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginTop: '20px',
-        marginBottom: '20px',
-        gap: '30px',
-    },
-    projectContainer: {
-        flexDirection: 'column',
-        gap: '10px',
-        marginTop: '20px',
-    },
-    projectBox: {
-        display: 'flex',
-        width: '200px',
-        height: '200px',
-        marginBottom: '10px',
-    },
-    projectName: {
-        fontSize: '18px',
-        fontWeight: 'bold',
-        marginBottom: '5px',
-    },
-    projectTechStack: {
-        fontSize: '16px',
-    },
-    projectOverlay: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-        flexDirection: 'column',
-        opacity: 0,
-        transition: 'opacity 0.3s',
-        '&:hover': {
-            background: 'rgba(0, 0, 0, 0.7)',
-            opacity: 1,
+    '@keyframes fadeIn': {
+        '0%': {
+          opacity: 0,
+          transform: 'translateY(20px)',
+        },
+        '100%': {
+          opacity: 1,
+          transform: 'translateY(0)',
         },
     },
-    projectDetails: {
-        fontSize: '14px',
-    },
-    hobbyEmoji: {
-        fontSize: '60px',
-    },
-    hobbyDescription: {
-        marginTop: '50px',
-        fontSize: '18px',
-    },
+    // new styles for mobile devices
+    '@media (max-width: 600px)': {
+        container: {
+            fontSize: '16px',
+            marginTop: '20px',
+        },
+        checkboxContainer: {
+            flexDirection: 'column',
+            alignItems: 'center',
+            marginTop: '20px',
+            marginBottom: '20px',
+            gap: '30px',
+        },
+        projectContainer: {
+            flexDirection: 'column',
+            gap: '10px',
+            marginTop: '20px',
+        },
+        projectBox: {
+            display: 'flex',
+            width: '200px',
+            height: '200px',
+            marginBottom: '10px',
+        },
+        projectName: {
+            fontSize: '18px',
+            fontWeight: 'bold',
+            marginBottom: '5px',
+        },
+        projectTechStack: {
+            fontSize: '16px',
+        },
+        projectOverlay: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            flexDirection: 'column',
+            opacity: 0,
+            transition: 'opacity 0.3s',
+            '&:hover': {
+                background: 'rgba(0, 0, 0, 0.7)',
+                opacity: 1,
+            },
+        },
+        projectDetails: {
+            fontSize: '14px',
+        },
+        hobbyEmoji: {
+            fontSize: '60px',
+        },
+        hobbyDescription: {
+            marginTop: '50px',
+            fontSize: '18px',
+        },
+        textBox: {
+            display: 'none',
+            position: 'absolute',
+            top: '120%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            padding: '8px',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            color: '#fff',
+            borderRadius: '4px',
+            fontSize: '14px',
+            animation: '$fadeIn 0.3s ease-in-out forwards',
+        },
+        '@keyframes fadeIn': {
+            '0%': {
+              opacity: 0,
+              transform: 'translateY(20px)',
+            },
+            '100%': {
+              opacity: 1,
+              transform: 'translateY(0)',
+            },
+        },
     },
 });
 
@@ -261,12 +301,33 @@ const WORK = [
 ];
 
 const PERSONAL = [
-    { emoji: '🏋️', description: 'Powerbuilder' },
+    {
+        emoji: '🏋️',
+        description: (
+            <div style={{ display: 'flex' }}>
+                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <Lottie animationData={Squat} />
+                    </div>
+                </div>
+                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <Lottie animationData={Bench} />
+                    </div>
+                </div>
+                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <Lottie animationData={Deadlift} />
+                    </div>
+                </div>
+            </div>
+    ),
+    },
     { emoji: '🎮', description: 'Gaming' },
     { emoji: '🎵', description: 'Music' },
     { emoji: '🏀', description: 'Basketball' },
     { emoji: '🧳', description: 'Travelling' },
-];
+  ];
 
 const Body = () => {
     const classes = useStyles();
@@ -277,6 +338,7 @@ const Body = () => {
     const [personalChecked, setPersonalChecked] = useState(false);
     
     const [selectedHobby, setSelectedHobby] = useState(null);
+
     const handleHobbyClick = (index) => {
         setSelectedHobby(PERSONAL[index]);
     };
@@ -385,6 +447,11 @@ const Body = () => {
                     onClick={() => handleHobbyClick(index)}
                 >
                     {hobby.emoji}
+                    {selectedHobby === PERSONAL[index] && (
+                        <span className={`${classes.textBox}`}>
+                            {PERSONAL[index].description}
+                        </span>
+                    )}
                 </span>
                 ))}
             </div>  
