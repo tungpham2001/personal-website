@@ -9,6 +9,16 @@ const useStyles = createUseStyles({
     },
     logo: {
         fontSize: 55,
+        background: 'linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+        backgroundSize: '200%',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        animation: '$gradientAnimation 8s ease infinite',
+    },
+    '@keyframes gradientAnimation': {
+        '0%': { backgroundPosition: '0% 50%' },
+        '50%': { backgroundPosition: '100% 50%' },
+        '100%': { backgroundPosition: '0% 50%' },
     },
     content: {
         marginLeft: 50,
@@ -64,13 +74,20 @@ const ICONS = [
         icon: "https://imgs.search.brave.com/XS1PQDToIq7-koaLvS4HMci3SEhL_a5HtgER77P5OnM/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4w/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvZGlnaXRhbC1t/YXJrZXRpbmctMi0x/My81MC8xMjItNTEy/LnBuZw",
         desc: "Resume"
     },
+    {
+        link: "https://open.spotify.com/user/71r447sxo99gaak72p2jcb5xm?si=522e30d1044b4c36",
+        icon: "https://static.vecteezy.com/system/resources/previews/018/930/579/original/spotify-app-logo-spotify-icon-transparent-free-png.png",
+        desc: "Spotify"
+    },
 ]
 
 const Home = () => {
     const classes = useStyles();
     return (
         <div className={classes.content}>
-            <h1 className={classes.logo}>Tung Pham</h1>
+            <h1 className={classes.logo}>
+                Tung Pham
+            </h1>
             <h2 className={classes.animation}><TypeAnimation
                 sequence={[
                     // Same substring at the start will only be typed out once, initially
@@ -97,8 +114,8 @@ const Home = () => {
                         <img
                             src={icon}
                             className={classes.icon}
-                            width = "30"
-                            height = "30"
+                            width = "35"
+                            height = "35"
                             alt= {desc}
                         />
                     </a>
