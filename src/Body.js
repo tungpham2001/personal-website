@@ -15,6 +15,9 @@ import QMIND from "./images/QMIND.jpg";
 import Squat from './json/squat.json';
 import Bench from './json/bench.json';
 import Deadlift from './json/deadlift.json'
+import League from "./json/league.json";
+import Valorant from "./images/valorant.gif";
+import Ninja from "./images/ninja.gif";
 
 
 const useStyles = createUseStyles( {
@@ -141,7 +144,6 @@ const useStyles = createUseStyles( {
         marginTop: '100px',
         textAlign: 'center',
         fontSize: '25px',
-        border: '1px solid black',
         padding: '10px',
         borderRadius: '30px',
     },
@@ -308,22 +310,49 @@ const PERSONAL = [
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                     <div style={{ width: '300px', height: '300px' }}>
                         <Lottie animationData={Squat} />
+                        <h1>430lbs</h1>
                     </div>
                 </div>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
-                    <div style={{ width: '300px', height: '300px' }}>
+                    <div style={{ width: '342px', height: '342px' }}>
                         <Lottie animationData={Bench} />
+                        <h1>275lbs</h1>
                     </div>
                 </div>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
-                    <div style={{ width: '300px', height: '300px' }}>
+                    <div style={{ width: '250px', height: '250px' }}>
                         <Lottie animationData={Deadlift} />
+                        <h1>495lbs</h1>
                     </div>
                 </div>
             </div>
-    ),
+        ),
     },
-    { emoji: '🎮', description: 'Gaming' },
+    { 
+        emoji: '🎮', 
+        description: (
+            <div style={{ display: 'flex' }}>
+                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <Lottie animationData={League} />
+                        <h3>League of Legends</h3>
+                    </div>
+                </div>
+                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '342px', height: '342px' }}>
+                        <img src={Valorant} alt="loading..." style={{ width: '322px', height: '300px' }}/>
+                        <h3>VALORANT</h3>
+                    </div>
+                </div>
+                <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '250px', height: '250px' }}>
+                        <img src={Ninja} alt="loading..." style={{ width: '250px', height: '300px' }}/>
+                        <h3>Ninja Storm 4</h3>
+                    </div>
+                </div>
+            </div>
+        ),
+    },
     { emoji: '🎵', description: 'Music' },
     { emoji: '🏀', description: 'Basketball' },
     { emoji: '🧳', description: 'Travelling' },
