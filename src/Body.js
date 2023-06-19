@@ -162,8 +162,34 @@ const useStyles = createUseStyles( {
         height: '200px',
         marginBottom: '10px',
     },
+    projectName: {
+        fontSize: '18px',
+        fontWeight: 'bold',
+        marginBottom: '5px',
+    },
+    projectTechStack: {
+        fontSize: '16px',
+    },
     projectOverlay: {
-        opacity: 1,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
+        opacity: 0,
+        transition: 'opacity 0.3s',
+        '&:hover': {
+            background: 'rgba(0, 0, 0, 0.7)',
+            opacity: 1,
+        },
+    },
+    projectDetails: {
+        fontSize: '14px',
     },
     hobbyEmoji: {
         fontSize: '60px',
