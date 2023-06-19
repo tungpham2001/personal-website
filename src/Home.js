@@ -35,6 +35,16 @@ const useStyles = createUseStyles({
             transform: 'scale(1.2) rotate(360deg)',
         },
     },
+    largeIcon: {
+        marginRight: 20,
+        marginTop: 27,
+        transition: 'transform 1s ease',
+        '&:hover': {
+            transform: 'scale(1.2) rotate(360deg)',
+        },
+        width: "35px",
+        height: "35px",
+    },
     '@media (max-width: 480px)': {
         content: {
           marginLeft: 10,
@@ -113,9 +123,9 @@ const Home = () => {
                     >
                         <img
                             src={icon}
-                            className={classes.icon}
-                            width = "35"
-                            height = "35"
+                            className={desc === 'Email' || desc === 'Spotify' ? classes.largeIcon : classes.icon}
+                            width = "30"
+                            height = "30"
                             alt= {desc}
                         />
                     </a>

@@ -22,9 +22,26 @@ import Deadlift from './json/deadlift.json'
 import League from "./json/league.json";
 import Valorant from "./images/valorant.gif";
 import Ninja from "./images/ninja.gif";
+import Paris from "./images/paris.gif";
+import Pisa from "./images/pisa.gif";
+import Sydney from "./images/sydney.gif";
+import Shibuya from "./images/shibuya.gif";
 
 
 const useStyles = createUseStyles( {
+    travelGrid: {
+        paddingLeft: '2rem',
+        paddingRight: '2rem',
+    },
+    subheading: {
+        fontSize: '25px',
+        fontWeight: 'lighter',
+        paddingLeft: '2rem',
+        paddingTop: '5rem',
+    },
+    subtitle: {
+        paddingBottom: '2rem',
+    },
     link: {
         color: 'cornflowerblue',
         textDecoration: 'underline',
@@ -33,7 +50,7 @@ const useStyles = createUseStyles( {
         backgroundColor: 'cornflowerblue'
     },
     checkboxContainer: {
-        padding: '2rem',
+        padding: '1rem',
         display: 'flex',
         justifyContent: 'center',
         marginTop: '50px',
@@ -127,7 +144,7 @@ const useStyles = createUseStyles( {
         margin: '0 100px',
         position: 'relative',
         '& hover $textBox': {
-            display: 'block'
+            display: 'block',
         },
         cursor: 'pointer',
     },
@@ -321,10 +338,6 @@ const Body = () => {
         setSelectedHobby(PERSONAL[index]);
     };
 
-    const handleMusicIconClick = () => {
-        setShowRecentSong(showRecentSong);
-    };
-
     const ABOUT = 
     <h1>
         Tung Pham is a dedicated Computer Science graduate from <a className={classes.link} href="https://www.queensu.ca/">Queen's University</a>, 
@@ -348,22 +361,25 @@ const PERSONAL = [
         emoji: '🏋️',
         description: (
             <div style={{ display: 'flex' }}>
+                <h1 className={classes.subheading} style={{ flex: 0.25, display: 'flex', justifyContent: 'center' }}>
+                    Tung is also a Powerbuilder, a mix of Powerlifting and Bodybuilder. Here are his SBD stats:
+                </h1>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                     <div style={{ width: '300px', height: '300px' }}>
                         <Lottie animationData={Squat} />
-                        <h1>430lbs</h1>
+                        <h1 className={classes.subtitle}>430lbs</h1>
                     </div>
                 </div>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                     <div style={{ width: '342px', height: '342px' }}>
                         <Lottie animationData={Bench} />
-                        <h1>275lbs</h1>
+                        <h1 className={classes.subtitle}>275lbs</h1>
                     </div>
                 </div>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                     <div style={{ width: '250px', height: '250px' }}>
                         <Lottie animationData={Deadlift} />
-                        <h1>495lbs</h1>
+                        <h1 className={classes.subtitle}>495lbs</h1>
                     </div>
                 </div>
             </div>
@@ -373,22 +389,25 @@ const PERSONAL = [
         emoji: '🎮', 
         description: (
             <div style={{ display: 'flex' }}>
+                <h1 className={classes.subheading} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
+                    Some games that Tung has been playing recently:
+                </h1>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                     <div style={{ width: '300px', height: '300px' }}>
                         <Lottie animationData={League} />
-                        <h3>League of Legends</h3>
+                        <h3 className={classes.subtitle}>League of Legends</h3>
                     </div>
                 </div>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
-                    <div style={{ width: '342px', height: '342px' }}>
+                    <div style={{ width: '330px', height: '330px' }}>
                         <img src={Valorant} alt="loading..." style={{ width: '322px', height: '300px' }}/>
-                        <h3>VALORANT</h3>
+                        <h3 className={classes.subtitle}>VALORANT</h3>
                     </div>
                 </div>
                 <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                     <div style={{ width: '250px', height: '250px' }}>
                         <img src={Ninja} alt="loading..." style={{ width: '250px', height: '300px' }}/>
-                        <h3>Ninja Storm 4</h3>
+                        <h3 className={classes.subtitle}>Ninja Storm 4</h3>
                     </div>
                 </div>
             </div>
@@ -428,8 +447,41 @@ const PERSONAL = [
             </div>
         ),
     },
-    { emoji: '🏀', description: 'Basketball' },
-    { emoji: '🧳', description: 'Travelling' },
+    //{ emoji: '🏀', description: 'Basketball' },
+    { 
+        emoji: '🧳', 
+        description: (
+            <div style={{ display: 'flex' }}>
+                <h1 className={classes.subheading} style={{ flex: 0.25, display: 'flex', justifyContent: 'center' }}>
+                    Tung's current travel bucket list:
+                </h1>
+                <div className={classes.travelGrid} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <img src={Paris} alt="loading..." style={{ width: '300px', height: '300px' }}/>
+                        <h3 className={classes.subtitle}>France</h3>
+                    </div>
+                </div>
+                <div className={classes.travelGrid} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <img src={Pisa} alt="loading..." style={{ width: '300px', height: '300px' }}/>
+                        <h3 className={classes.subtitle}>Italy</h3>
+                    </div>
+                </div>
+                <div className={classes.travelGrid} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <img src={Sydney} alt="loading..." style={{ width: '300px', height: '300px' }}/>
+                        <h3 className={classes.subtitle}>Australia</h3>
+                    </div>
+                </div>
+                <div className={classes.travelGrid} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ width: '300px', height: '300px' }}>
+                        <img src={Shibuya} alt="loading..." style={{ width: '300px', height: '300px' }}/>
+                        <h3 className={classes.subtitle}>Japan</h3>
+                    </div>
+                </div>
+            </div>
+        ),
+    },
   ];
 
     const handleCheckboxChange = (checkboxName, isChecked) => {
