@@ -45,6 +45,11 @@ const useStyles = createUseStyles( {
     link: {
         color: 'cornflowerblue',
         textDecoration: 'underline',
+        transition: 'opacity 1s',
+        '&:hover': {
+            backgroundColor: 'lightgreen',
+        },
+
     },
     highlight: {
         backgroundColor: 'cornflowerblue'

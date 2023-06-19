@@ -6,4 +6,5 @@ body {
   font-family: 'Inconsolata', 'Poppins', 'OpenSans', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(45deg, rgba(173, 216, 230, 0.3), rgba(144, 238, 144, 0.3));
 }
