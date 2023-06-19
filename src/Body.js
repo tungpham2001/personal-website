@@ -447,7 +447,7 @@ const PERSONAL = [
             </div>
         ),
     },
-    //{ emoji: '🏀', description: 'Basketball' },
+    // { emoji: '🛏️', description: 'Interior Design' },
     { 
         emoji: '🧳', 
         description: (

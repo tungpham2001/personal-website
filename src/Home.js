@@ -89,6 +89,11 @@ const ICONS = [
         icon: "https://static.vecteezy.com/system/resources/previews/018/930/579/original/spotify-app-logo-spotify-icon-transparent-free-png.png",
         desc: "Spotify"
     },
+    {
+        link: "https://rooms.xyz/tungphamtys/bedroom",
+        icon: "https://cdn-icons-png.flaticon.com/512/78/78257.png",
+        desc: "Rooms.xyz"
+    },
 ]
 
 const Home = () => {
