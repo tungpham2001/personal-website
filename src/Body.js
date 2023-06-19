@@ -157,18 +157,13 @@ const useStyles = createUseStyles( {
         marginTop: '20px',
     },
     projectBox: {
-        width: '100%',
+        display: 'flex',
+        width: '200px',
         height: '200px',
         marginBottom: '10px',
-        '@media (min-width: 400px)': {
-          width: 'calc(50% - 10px)',
-        },
-        '@media (min-width: 800px)': {
-          width: 'calc(33% - 10px)',
-        },
     },
     projectOverlay: {
-        
+        opacity: 1,
     },
     hobbyEmoji: {
         fontSize: '60px',
@@ -378,4 +373,4 @@ const Body = () => {
     );
 };
   
-  export default Body;
+export default Body;
