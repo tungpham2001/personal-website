@@ -1,9 +1,14 @@
 import React from 'react';
+import { TypeAnimation } from 'react-type-animation';
 import {createUseStyles} from 'react-jss';
 
 const useStyles = createUseStyles({
+    animation: {
+        fontSize: 18,
+        fontFamily: 'Inconsolata',
+    },
     logo: {
-        fontSize: 50,
+        fontSize: 55,
     },
     content: {
         marginLeft: 50,
@@ -13,8 +18,13 @@ const useStyles = createUseStyles({
         marginTop: 30
     },
     icon: {
-        marginRight: 20
-    }
+        marginRight: 20,
+        marginTop: 30,
+        transition: 'transform 1s ease',
+        '&:hover': {
+            transform: 'scale(1.2) rotate(360deg)',
+        },
+    },
 });
 
 const ICONS = [
@@ -45,7 +55,21 @@ const Home = () => {
     return (
         <div className={classes.content}>
             <h1 className={classes.logo}>Tung Pham</h1>
-            <h2>Aspiring Software Engineer & Web Developer | QueensU CS</h2>
+            <h2 className={classes.animation}><TypeAnimation
+                sequence={[
+                    // Same substring at the start will only be typed out once, initially
+                    'Aspiring Software Engineer',
+                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                    'Aspiring Web Developer',
+                    1000,
+                    'Aspiring Game Developer',
+                    1000
+                ]}
+                wrapper="span"
+                speed={50}
+                style={{ fontSize: '2em', display: 'inline-block' }}
+                repeat={Infinity}
+            /> | QueensU CS</h2>
 
             <div>
                 {ICONS.map(({link, icon, desc}) => (

@@ -3,6 +3,13 @@ import 'pretty-checkbox/src/pretty-checkbox.scss';
 import { createUseStyles } from 'react-jss';
 import Lucidity from "./images/Lucidity.png";
 import MG from "./images/MG.gif";
+import ADGA from "./images/ADGA.jpg";
+import PPS from "./images/PPS.jpg";
+import TTK from "./images/TTK.jpg"
+import SFSS from "./images/SFSS.png";
+import Github from "./images/Github.png";
+import Weather from "./images/Weather.JPG";
+import QMIND from "./images/QMIND.jpg";
 
 const useStyles = createUseStyles( {
     link: {
@@ -95,58 +102,123 @@ const useStyles = createUseStyles( {
     projectTechStack: {
         fontSize: '16px',
     },
+    hobbyContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '20px',
+        flexWrap: 'wrap',
+    },
+    hobbyEmoji: {
+        fontSize: '80px',
+        margin: '5px',
+        margin: '0 100px',
+        position: 'relative',
+        '& hover $textBox': {
+            display: 'block'
+        },
+        cursor: 'pointer',
+    },
+    textBox: {
+        display: 'none',
+        position: 'absolute',
+        top: '100%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        padding: '8px',
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        color: '#fff',
+        borderRadius: '4px',
+        fontSize: '14px',
+    },
+    hobbyDescription: {
+        marginTop: '100px',
+        textAlign: 'center',
+        fontSize: '25px',
+        border: '1px solid black',
+        padding: '10px',
+        borderRadius: '30px',
+    },
 });
 
 const WORK = [
     {
-        name: "Project 1",
-        company: "Company 1",
-        location: "Location 1",
-        techStack: "Tech Stack 1",
+        name: "Lucidity",
+        company: "Information Technology Capstone",
+        location: "Kingston, ON",
+        techStack: "Unity, C#",
         imageUrl: Lucidity,
     },
     {
-        name: "Project 2",
-        company: "Company 2",
-        location: "Location 2",
-        techStack: "Tech Stack 2",
-        imageUrl: "https://example.com/project2-image.jpg",
+        name: "Stress-Free Schedule Support",
+        company: "Human-Computer Interaction Project",
+        location: "Kingston, ON",
+        techStack: "Python, HTML, CSS, JavaScript, SQL",
+        imageUrl: SFSS,
     },
     {
-        name: "Project 3",
-        company: "Company 3",
-        location: "Location 3",
-        techStack: "Tech Stack 3",
-        imageUrl: "https://example.com/project2-image.jpg",
+        name: "Time to Kill",
+        company: "Game Design Project",
+        location: "Kingston, ON",
+        techStack: "Unity, C#",
+        imageUrl: TTK,
     },
     {
-        name: "Project 4",
-        company: "Company 4",
-        location: "Location 4",
-        techStack: "Tech Stack 4",
-        imageUrl: "https://example.com/project2-image.jpg",
+        name: "Web Development",
+        company: "QMIND",
+        location: "Kingston, ON",
+        techStack: "HTML, CSS, JavaScript, React",
+        imageUrl: QMIND,
     },
     {
-        name: "Project 5",
-        company: "Company 5",
-        location: "Location 5",
-        techStack: "Tech Stack 5",
-        imageUrl: "https://example.com/project2-image.jpg",
+        name: "Waste Wizard Classification",
+        company: "QMIND x PPS",
+        location: "Kingston, ON",
+        techStack: "HTML, CSS, ActionScript, JavaScript, Java, Jupyter Notebook",
+        imageUrl: PPS,
     },
     {
-        name: "Project 6",
-        company: "Company 6",
-        location: "Location 6",
-        techStack: "Tech Stack 6",
-        imageUrl: "https://example.com/project2-image.jpg",
+        name: "Marine Object Detection",
+        company: "AGDA x QMIND",
+        location: "Kingston, ON",
+        techStack: "Python, Faster R-CNN, SSD, EfficientNet",
+        imageUrl: ADGA,
+    },
+    {
+        name: "Weather App",
+        company: "Personal Project",
+        location: "Kingston, ON",
+        techStack: "HTML, CSS, JavaScript, React",
+        imageUrl: Weather,
+    },
+    {
+        name: "Schedule Tracker",
+        company: "Personal Project",
+        location: "Kingston, ON",
+        techStack: "HTML, CSS, JavaScript",
+        imageUrl: Github,
     },
 ];
+
+const PERSONAL = [
+    { emoji: '🏋️', description: 'Powerbuilder' },
+    { emoji: '🎮', description: 'Gaming' },
+    { emoji: '🎵', description: 'Music' },
+    { emoji: '🏀', description: 'Basketball' },
+    { emoji: '🧳', description: 'Travelling' },
+];
+
 const Body = () => {
     const classes = useStyles();
+
     const [aboutChecked, setAboutChecked] = useState(false);
     const [workChecked, setWorkChecked] = useState(false);
     const [unknownChecked, setUnknownChecked] = useState(false);
     const [personalChecked, setPersonalChecked] = useState(false);
+    
+    const [selectedHobby, setSelectedHobby] = useState(null);
+    const handleHobbyClick = (index) => {
+        setSelectedHobby(PERSONAL[index]);
+    };
 
     const ABOUT = 
     <h1>
@@ -175,6 +247,7 @@ const Body = () => {
             setUnknownChecked(isChecked);
         } else if (checkboxName == 'personal') {
             setPersonalChecked(isChecked);
+            setSelectedHobby(null);
         }
         };
 
@@ -241,6 +314,24 @@ const Body = () => {
                     }
                 `}
                 </style>
+            )}
+            {personalChecked && (
+            <div className={classes.hobbyContainer}>
+                {PERSONAL.map((hobby, index) => (
+                <span 
+                    className={classes.hobbyEmoji} 
+                    key={index} 
+                    onClick={() => handleHobbyClick(index)}
+                >
+                    {hobby.emoji}
+                </span>
+                ))}
+            </div>  
+            )}
+            {selectedHobby && (
+                <div className={classes.hobbyDescription}>
+                    {selectedHobby.description}
+                </div>
             )}
         </div>
     </div>
