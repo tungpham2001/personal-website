@@ -138,6 +138,40 @@ const useStyles = createUseStyles( {
         padding: '10px',
         borderRadius: '30px',
     },
+    // new styles for mobile devices
+    '@media (max-width: 600px)': {
+    container: {
+        fontSize: '16px',
+        marginTop: '20px',
+    },
+    checkboxContainer: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: '20px',
+        marginBottom: '20px',
+        gap: '30px',
+    },
+    projectContainer: {
+        flexDirection: 'column',
+        gap: '10px',
+        marginTop: '20px',
+    },
+    projectBox: {
+        width: '100%',
+        height: '200px',
+        marginBottom: '10px',
+    },
+    projectOverlay: {
+        
+    },
+    hobbyEmoji: {
+        fontSize: '60px',
+    },
+    hobbyDescription: {
+        marginTop: '50px',
+        fontSize: '18px',
+    },
+    },
 });
 
 const WORK = [

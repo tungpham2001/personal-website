@@ -25,6 +25,22 @@ const useStyles = createUseStyles({
             transform: 'scale(1.2) rotate(360deg)',
         },
     },
+    '@media (max-width: 480px)': {
+        content: {
+          marginLeft: 10,
+          marginRight: 10,
+        },
+        logo: {
+          fontSize: 40,
+        },
+        animation: {
+          fontSize: 14,
+        },
+        icon: {
+          marginRight: 10,
+          marginTop: 20,
+        },
+    },
 });
 
 const ICONS = [
