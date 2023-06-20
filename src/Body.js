@@ -655,7 +655,13 @@ const WORK = [
             description: (
                 <div style={{ display: 'flex' }}>
                     <h1 className={classes.subheading} style={{ flex: 0.25, display: 'flex', justifyContent: 'center' }}>
-                        Tung is also a Powerbuilder, a mix of Powerlifting and Bodybuilder. Here are his SBD stats:
+                        <TypeAnimation
+                            sequence={[
+                                "Tung is also a Powerbuilder, a mix of Powerlifting and Bodybuilder. Here are his SBD stats:"
+                            ]}
+                            style={{ fontSize: '1em' }}
+                            speed={80}
+                        />
                     </h1>
                     <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                         <div style={{ width: '300px', height: '300px' }}>
@@ -682,9 +688,15 @@ const WORK = [
             emoji: '🎮', 
             description: (
                 <div style={{ display: 'flex' }}>
-                    <h1 className={classes.subheading} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
-                        Some games that Tung has been playing recently:
-                    </h1>
+                    <h2 className={classes.subheading} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
+                        <TypeAnimation
+                            sequence={[
+                                "Some games that Tung has been playing recently:"
+                            ]}
+                            style={{ fontSize: '1em' }}
+                            speed={80}
+                        />
+                    </h2>
                     <div style={{ flex: 0.33, display: 'flex', justifyContent: 'center' }}>
                         <div style={{ width: '300px', height: '300px' }}>
                             <Lottie animationData={League} />
@@ -745,9 +757,15 @@ const WORK = [
             emoji: '🧳', 
             description: (
                 <div style={{ display: 'flex' }}>
-                    <h1 className={classes.subheading} style={{ flex: 0.25, display: 'flex', justifyContent: 'center' }}>
-                        Tung's current travel bucket list:
-                    </h1>
+                    <h3 className={classes.subheading} style={{ flex: 0.25, display: 'flex', justifyContent: 'center' }}>
+                        <TypeAnimation
+                            sequence={[
+                                "Tung's current travel bucket list:"
+                            ]}
+                            style={{ fontSize: '1em' }}
+                            speed={80}
+                        />
+                    </h3>
                     <div className={classes.travelGrid} style={{ flex: 0.20, display: 'flex', justifyContent: 'center' }}>
                         <div style={{ width: '300px', height: '300px' }}>
                             <img src={Paris} alt="loading..." style={{ width: '300px', height: '300px' }}/>
