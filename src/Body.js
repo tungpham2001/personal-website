@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import { createUseStyles } from 'react-jss';
 import axios from 'axios';
@@ -15,6 +15,9 @@ import SFSS from "./images/SFSS.png";
 import Github from "./images/Github.png";
 import Weather from "./images/Weather.JPG";
 import QMIND from "./images/QMIND.jpg";
+import Orientation from "./images/orientation.png";
+import CUCAI from "./images/cucai.jpg";
+import Computing from "./images/computing.png";
 
 import Squat from './json/squat.json';
 import Bench from './json/bench.json';
@@ -323,6 +326,8 @@ const Body = () => {
     const [selectedHobby, setSelectedHobby] = useState(null);
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
     const [showRecentSong, setShowRecentSong] = useState(true);
+    const projectContainerRef = useRef(null);
+    const descriptionBoxRef = useRef(null);
 
     const handleHobbyClick = (index) => {
         setSelectedHobby(PERSONAL[index]);
@@ -331,6 +336,12 @@ const Body = () => {
     const handleProjectClick = (index) => {
         setSelectedProjectIndex(index);
     };
+
+    useEffect(() => {
+        if (selectedProjectIndex !== null && descriptionBoxRef.current) {
+          descriptionBoxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, [selectedProjectIndex]);
 
     const ABOUT = 
     <h1>
@@ -573,6 +584,71 @@ const WORK = [
         }
     },
     {
+        name: "University Teaching Assistant",
+        company: "Queen's School of Computing",
+        location: "Kingston, ON",
+        techStack: "Python, Java, Data Structures, Algorithms",
+        imageUrl: Computing,
+        descList: {
+            summary: "Undergraduate Teaching Assistant - Education and Teaching",
+            description: "The School of Computing at Queen’s University " +
+            "invites applications from suitably qualified candidates interested " +
+            "in teaching courses shown below. The University invites applications " +
+            "from all qualified individuals. Queen’s University is committed to " +
+            "employment equity and diversity in the workplace and welcomes " +
+            "applications from women, visible minorities, aboriginal people, " +
+            "persons with disabilities, and persons of any sexual orientation or " +
+            "gender identity. All qualified candidates are encouraged to apply; " +
+            "however, Canadians and permanent residents will be given priority.",
+            bulletPoints: {
+                bullets:
+                <ul>
+                    <uL>
+                        <h3>CISC 235: Data Structure</h3>
+                        <li className={classes.projectBulletPoints}>
+                        Conducted weekly synchronous Python Data Structure tutorial sessions for 30 students, provided feedback on assessments and exams, and offered additional support outside of lecture time
+                        </li>
+                        <li className={classes.projectBulletPoints}>
+                        Assessed students' proficiency in Time Complexity, Stacks and Queues, Heap Tables, Trees and Graphs
+                        </li>
+                        <li className={classes.projectBulletPoints}>
+                        Achieved a 12% increase in the overall class average compared to previous years
+                        </li>
+                    </uL>
+                    <uL>
+                        <h3>CISC 203: Discrete Mathematics for Computing II</h3>
+                        <li className={classes.projectBulletPoints}>
+                        Assisted 323 students weekly with Proof Methods and Combinatorics
+                        </li>
+                        <li className={classes.projectBulletPoints}>
+                        Implemented Latex and Overleaf for Discrete Probability, Recurrence Relations & Graph and Trees
+                        </li>
+                    </uL>
+                    <uL>
+                        <h3>CISC 124: Introduction to Java II</h3>
+                        <li className={classes.projectBulletPoints}>
+                        Conducted comprehensive assessments of students’ proficiency in Java Object-Oriented Design, Architecture and Programming                        </li>
+                        <li className={classes.projectBulletPoints}>
+                        Managed weekly evaluations of 358 students on Python materials and related technologies, ensuring accurate grading and prompt feedback
+                        </li>
+                        <li className={classes.projectBulletPoints}>
+                        Boosted overall class average by an impressive 20%, surpassing results from previous years                        </li>
+                    </uL>
+                    <uL>
+                        <h3>CISC 121: Introduction to Python I</h3>
+                        <li className={classes.projectBulletPoints}>
+                        Assisted 358 students weekly with Python materials and related technologies and implementation                        </li>
+                        <li className={classes.projectBulletPoints}>
+                        Assist the professor with Designated Lectures, Discussion Forum and Office Hours                        </li>
+                        <li className={classes.projectBulletPoints}>
+                        Grade assignments + course evaluations                        </li>
+                    </uL>
+                </ul>,
+            },
+            link: "https://www.cs.queensu.ca/",
+        }
+    },
+    {
         name: "WeatherNow",
         company: "Personal Project",
         location: "Kingston, ON",
@@ -645,6 +721,72 @@ const WORK = [
                 </ul>,
             },
             link: "https://github.com/tungpham2001/SCHEDULE_TRACKER",
+        }
+    },
+    {
+        name: "The Canadian Undergraduate Conference on AI (CUCAI)",
+        company: "QMIND",
+        location: "Kingston, ON",
+        techStack: "Microsoft Office Suite, Zoom",
+        imageUrl: CUCAI,
+        descList: {
+            summary: "Logistics Manager - Event Planning and Hospitality Services",
+            description: "Designed to connect passionate and talented undergraduate students " +
+            "with industry trailblazers, the Canadian Undergraduate Conference on Artificial " +
+            "Intelligence (CUCAI) is a national-scale conference aimed to inspire the future " +
+            "leaders of AI. 🍿 Get a glimpse into the future of AI as students showcase their cutting-edge AI projects at the AI project showcase. 🤖 Explore the latest advancements and immerse yourself in interactive workshops presented by leading sponsor companies. 🚀 Don't miss this opportunity to network with top AI professionals and discover the latest innovations shaping our world.",
+            bulletPoints: {
+                bullets:
+                <ul>
+                    <li className={classes.projectBulletPoints}>
+                    Led transition to in person conference, planned and scheduled events adhering to the compliance standards
+                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    Planned and scheduled inspections, meetings, equipment testing, and regular venue maintenance for 500+ delegates                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    Oversaw venue contract, as well as documentations regarding transportations, metrics, health and safety, and food                    </li>
+                </ul>,
+            },
+            link: "https://www.cucai.ca/",
+        }
+    },
+    {
+        name: "Queen's Computing Orientation Committee",
+        company: "Queen's School of Computing",
+        location: "Kingston, ON",
+        techStack: "Microsoft Office Suite, Zoom",
+        imageUrl: Orientation,
+        descList: {
+            summary: "Logistics Chair - Event Planning and Hospitality Services",
+            description: "Welcome to the exciting world of Computing at Queen's University! " +
+            "Prepare for an unforgettable journey beyond coding and algorithms. " +
+            "This is a chance to embrace the endless possibilities that await as you " +
+            "begin this exciting new chapter. Celebrating our twentieth anniversary " +
+            "this year, Computing Orientation is an experience that is bound " +
+            "to stick with you far beyond your first year. " +
+            "Discover a world of opportunities as a Computing student at Queen's University, " +
+            "where engaging events and activities await you. " +
+            "Build lasting connections with fellow students and orientation " +
+            "leaders as we eagerly anticipate the beginning of your exciting journey. " +
+            "Get ready to dive into the world of Computing at Queen's University. " +
+            "We can't wait to get started!",
+            bulletPoints: {
+                bullets:
+                <ul>
+                    <li className={classes.projectBulletPoints}>
+                    Oversaw the planning process for Computing Orientation Week 2021, re-designed Orientation 2021 
+                    to be delivered and attended through a virtual platform; overlooked all deadlines and regulations for all events
+                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    Oversaw the planning process for Computing Orientation Week 2021, re-designed Orientation 2021 
+                    to be delivered and attended through a virtual platform
+                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    Completed training in AccessForward, Positive Space, ORT Summer Training 101, Human Rights 101, and LIT Training
+                    </li>
+                </ul>,
+            },
+            link: "http://qcomputingorientation.ca/",
         }
     },
 ];
@@ -849,7 +991,7 @@ const WORK = [
             {workChecked && (
             <div>
                 {selectedProjectIndex !== null && (
-                <div className={classes.descriptionBox}>
+                <div className={classes.descriptionBox} ref={descriptionBoxRef}>
                     <div className={classes.projectDescriptionContent}>
                         <div className={classes.projectName}>
                             {WORK[selectedProjectIndex].name}
@@ -882,7 +1024,7 @@ const WORK = [
                     </div>
                 </div>
                 )}
-                <div className={classes.projectContainer}>
+                <div className={classes.projectContainer} ref={projectContainerRef}>
                     {WORK.map((project, index) => (
                     <div 
                         className={classes.projectBox} 
