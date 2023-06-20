@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import {createUseStyles} from 'react-jss';
 
@@ -34,6 +34,29 @@ const useStyles = createUseStyles({
         '&:hover': {
             transform: 'scale(1.2) rotate(360deg)',
         },
+    },
+    iconContainer: {
+        display: 'flex',
+    },
+    description: {
+        position: 'absolute',
+        fontSize: '1em',
+        marginTop: '0.5em',
+        opacity: 0,
+        visibility: 'hidden',
+        transition: 'opacity 0.3s ease',
+    },
+    iconWrapper: {
+        position: 'relative',
+        display: 'inline-block',
+        cursor: 'pointer',
+        '&:hover $description': {
+          opacity: 1,
+          visibility: 'visible',
+        },
+        fontSize: '15px',
+        fontWeight: 'bolder',
+        color: 'red',
     },
     largeIcon: {
         marginRight: 20,
@@ -98,6 +121,16 @@ const ICONS = [
 
 const Home = () => {
     const classes = useStyles();
+    const [hoveredIcon, setHoveredIcon] = useState('');
+
+    const handleIconHover = (desc) => {
+        setHoveredIcon(desc);
+    };
+
+    const handleIconLeave = () => {
+        setHoveredIcon('');
+    };
+
     return (
         <div className={classes.content}>
             <h1 className={classes.logo}>
@@ -117,22 +150,32 @@ const Home = () => {
                 speed={50}
                 style={{ fontSize: '2em', display: 'inline-block' }}
                 repeat={Infinity}
-            /> | QueensU CS</h2>
+            />{' '} | QueensU CS</h2>
 
-            <div>
+            <div className={classes.iconContainer}>
                 {ICONS.map(({link, icon, desc}) => (
                     <a
                         target = "_blank"
                         rel = "noreferrer"
                         href = {link}
+                        key={desc}
                     >
-                        <img
-                            src={icon}
-                            className={desc === 'Email' || desc === 'Spotify' ? classes.largeIcon : classes.icon}
-                            width = "30"
-                            height = "30"
-                            alt= {desc}
-                        />
+                        <div
+                            className={classes.iconWrapper}
+                            onMouseEnter={() => handleIconHover(desc)}
+                            onMouseLeave={handleIconLeave}
+                        >
+                            <img
+                                src={icon}
+                                className={desc === 'Email' || desc === 'Spotify' ? classes.largeIcon : classes.icon}
+                                width = "30"
+                                height = "30"
+                                alt= {desc}
+                            />
+                            {hoveredIcon === desc && (
+                                <p className={classes.description}>{desc}</p>
+                            )}
+                        </div>
                     </a>
                 ))}
             </div>
