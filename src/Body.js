@@ -10,7 +10,7 @@ import Lottie from "lottie-react";
 import MG from "./images/MG.gif";
 import ADGA from "./images/ADGA.jpg";
 import PPS from "./images/PPS.jpg";
-import TTK from "./images/TTK.jpg"
+import TTK from "./images/TTK.png"
 import SFSS from "./images/SFSS.png";
 import Github from "./images/Github.png";
 import Weather from "./images/Weather.JPG";
@@ -18,6 +18,7 @@ import QMIND from "./images/QMIND.jpg";
 import Orientation from "./images/orientation.png";
 import CUCAI from "./images/cucai.jpg";
 import Computing from "./images/computing.png";
+import tsuteung from "./images/tsuteung.png"
 
 import Squat from './json/squat.json';
 import Bench from './json/bench.json';
@@ -470,6 +471,43 @@ const WORK = [
                 </ul>,
             },
             link: "https://tungpham2001.github.io/",
+        }
+    },
+    {
+        name: "tsuteung",
+        company: "Personal Project",
+        location: "Toronto, ON",
+        techStack: "HTML, CSS, JavaScript, React, Bootstrap",
+        imageUrl: tsuteung,
+        descList: {
+            summary: "React Developer - Pomodoro Study Assistance",
+            description: "tsuteung is a web application designed to provide a study companion and productivity " +
+            "tool based on the Pomodoro Technique. The app aims to help individuals enhance their focus, " + 
+            "manage their time effectively, and stay organized while studying or working on tasks. " +
+            "The main features of Tsuteung include a countdown timer, task management, and a dynamic title display. " +
+            "The countdown timer follows the Pomodoro Technique, dividing work or study sessions into focused intervals of 25 minutes, " +
+            "known as pomodoros separated by short breaks. This technique promotes productivity " +
+            "and concentration by encouraging users to work in bursts and take regular breaks. " +
+            "The task management feature allows users to create and organize their tasks, making it easier to track their " +
+            "progress and stay on top of their priorities. By breaking tasks into manageable units, users can better plan and allocate their time.",
+            bulletPoints: {
+                bullets:
+                <ul>
+                    <li className={classes.projectBulletPoints}>
+                    Developed a responsive (in progress) and visually appealing web application using React.js and JavaScript, 
+                    implementing key features such as a countdown timer, task management, and dynamic title display based on the Pomodoro Technique
+                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    Utilized CSS and JSS to create custom styling and animations, including fade-in and fade-out transitions, 
+                    enhancing the user experience and providing a polished interface.
+                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    Integrated third-party libraries such as react-spinners and react-jss to incorporate loading screens and optimize the application's performance, 
+                    ensuring smooth transitions and responsiveness during data fetching and state updates.
+                    </li>
+                </ul>,
+            },
+            link: "https://github.com/tungpham2001/tsuteung",
         }
     },
     {
