@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import { createUseStyles } from 'react-jss';
-import axios from 'axios';
 import RecentSong from './RecentSong';
 import { TypeAnimation } from "react-type-animation";
 
@@ -192,7 +191,6 @@ const useStyles = createUseStyles( {
     },
     hobbyEmoji: {
         fontSize: '80px',
-        margin: '5px',
         margin: '0 100px',
         position: 'relative',
         '& hover $textBox': {
@@ -326,7 +324,7 @@ const Body = () => {
     
     const [selectedHobby, setSelectedHobby] = useState(null);
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
-    const [showRecentSong, setShowRecentSong] = useState(true);
+    const [showRecentSong] = useState(true);
     const projectContainerRef = useRef(null);
     const descriptionBoxRef = useRef(null);
 
@@ -485,7 +483,7 @@ const WORK = [
             "tool based on the Pomodoro Technique. The app aims to help individuals enhance their focus, " + 
             "manage their time effectively, and stay organized while studying or working on tasks. " +
             "The main features of Tsuteung include a countdown timer, task management, and a dynamic title display. " +
-            "The countdown timer follows the Pomodoro Technique, dividing work or study sessions into focused intervals of 25 minutes, " +
+            "The countdown timer follows the Pomodoro Technique, dividing work or study sessions into focused intervals, " +
             "known as pomodoros separated by short breaks. This technique promotes productivity " +
             "and concentration by encouraging users to work in bursts and take regular breaks. " +
             "The task management feature allows users to create and organize their tasks, making it easier to track their " +
@@ -982,7 +980,7 @@ const WORK = [
             setWorkChecked(isChecked);
         } else if (checkboxName === 'unknown') {
             setUnknownChecked(isChecked);
-        } else if (checkboxName == 'personal') {
+        } else if (checkboxName === 'personal') {
             setPersonalChecked(isChecked);
             setSelectedHobby(null);
         }
