@@ -18,6 +18,7 @@ import Orientation from "./images/orientation.png";
 import CUCAI from "./images/cucai.jpg";
 import Computing from "./images/computing.png";
 import tsuteung from "./images/tsuteung.png"
+import logged from "./images/logged.jpg";
 
 import Squat from './json/squat.json';
 import Bench from './json/bench.json';
@@ -823,6 +824,32 @@ const WORK = [
                 </ul>,
             },
             link: "http://qcomputingorientation.ca/",
+        }
+    },
+    {
+        name: "L O G G E D",
+        company: "Personal Project",
+        location: "Toronto, ON",
+        techStack: "to be determined",
+        imageUrl: logged,
+        descList: {
+            summary: "Full Stack Engineer - Fitness Calories and Exercise Tracker",
+            description: "to be filled",
+            bulletPoints: {
+                bullets:
+                <ul>
+                    <li className={classes.projectBulletPoints}>
+                    bullet 1
+                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    bullet 2
+                    </li>
+                    <li className={classes.projectBulletPoints}>
+                    bullet 3                    
+                    </li>
+                </ul>,
+            },
+            link: "#",
         }
     },
 ];
