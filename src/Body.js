@@ -827,7 +827,7 @@ const WORK = [
         }
     },
     {
-        name: "L O G G E D",
+        name: "L O G G E D (in progress)",
         company: "Personal Project",
         location: "Toronto, ON",
         techStack: "to be determined",
@@ -849,7 +849,7 @@ const WORK = [
                     </li>
                 </ul>,
             },
-            link: "#",
+            link: "https://github.com/tungpham2001/logged",
         }
     },
 ];
