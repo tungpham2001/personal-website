@@ -103,7 +103,7 @@ const ICONS = [
         desc: "Email"
     },
     {
-        link: "https://drive.google.com/file/d/1swR5uOCB1l6EGPhbskJ84UR5IpoYXOGA/view?usp=drive_link",
+        link: "https://drive.google.com/file/d/1y35ABpLcPd8uHYmoa5jak8PJvfeXtddr/view?usp=drive_link",
         icon: "https://imgs.search.brave.com/XS1PQDToIq7-koaLvS4HMci3SEhL_a5HtgER77P5OnM/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4w/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvZGlnaXRhbC1t/YXJrZXRpbmctMi0x/My81MC8xMjItNTEy/LnBuZw",
         desc: "Resume"
     },
